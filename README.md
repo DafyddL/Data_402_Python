@@ -1,4 +1,4 @@
-# HEading 1
+# Heading 1
 
 ## Heading 2
 
@@ -11,7 +11,7 @@
 **Bold**
 
 - Bullet 1
-- Bullt 2
+- Bullet 2
 - Bullet 3
 
 * Bullet 1
