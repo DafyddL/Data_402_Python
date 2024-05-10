@@ -64,8 +64,9 @@ def ask_question(question):
                                                                         answers[1],
                                                                         answers[2],
                                                                         answers[3]))
-    if answers[4]:
+    """if answers[4]:
         print(answers[4])
+        """
     type_not_correct = True
     while type_not_correct:
         typed = input("Please give an answer: ").lower()  ## ask for an answer
