@@ -15,7 +15,34 @@ questions = [{"question": "What is the capital of Slovenia?",
               "fake_answers": ["Brazil", "Monaco", "Belgium"]},
              {"question": "Who was the european to reach the Americas?",
               "correct_answer": "Leif Erikson",
-              "fake_answers": ["Christopher Columbus", "Ferdinand Magellan", "James Cook"]}]
+              "fake_answers": ["Christopher Columbus", "Ferdinand Magellan", "James Cook"]},
+             {"question": "How long does it take light to travel from the Sun to the Earth?",
+              "correct_answer": "About 8 minutes",
+              "fake_answers": ["It's instantaneous", "About 11 days","2 or 3 months, depending on the time of year"]},
+             {"question": "Which of these noble ranks is highest?",
+              "correct_answer": "Duke",
+              "fake_answers": ["Baron", "Earl", "Marquis"]},
+             {"question": "A triangle has one side with a length of 3 and another side with a length of 4. What is the length of th third side?",
+              "correct_answer": "Impossible to say",
+              "fake_answers": ["4", "5", "6"]},
+             {"question": "What letter is a protractor shaped like?",
+              "correct_answer": "D",
+              "fake_answers": ["F", "L", "V"]},
+             {"question": "What is the national animal of Scotland?",
+              "correct_answer": "Unicorn",
+              "fake_answers": ["Eagle", "Lion", "Stag"]},
+             {"question": "Who is the patron Saint of Wales?",
+              "correct_answer": "St. David",
+              "fake_answers": ["St. George", "St. Andrew", "St. Patrick"]},
+             {"question": "Which of the following is a portmanteau?",
+              "correct_answer": "Brunch",
+              "fake_answers": ["A man, a plan, a canal. Panama!", "Jumbo Shrimp", "Flamingo dancing"]},
+             {"question": "Where would you find the Spanish Steps",
+              "correct_answer": "Rome",
+              "fake_answers": ["New York City", "Madrid", "Mars"]},
+             {"question": "Where would you be most likely to see an epitaph?",
+              "correct_answer": "On a tombstone",
+              "fake_answers": ["At the bottom of a page", "At a zoo", "On a boat"]}]
 
 
 def make_question_list(qs, number):
@@ -27,6 +54,7 @@ def ask_question(question):
     typed = ""
     corr = False
     options = ['a', 'b', 'c', 'd']
+    answer = []
     answers = question["fake_answers"]
     answers.append(question["correct_answer"])  #make list of all answers
     random.shuffle(answers)  #shuffle the order of the answers
@@ -36,6 +64,8 @@ def ask_question(question):
                                                                         answers[1],
                                                                         answers[2],
                                                                         answers[3]))
+    if answers[4]:
+        print(answers[4])
     type_not_correct = True
     while type_not_correct:
         typed = input("Please give an answer: ").lower()  ## ask for an answer
@@ -65,7 +95,7 @@ if __name__ == "__main__":
     playing = True
     while playing:
         input("Are you ready to begin? Please press enter")
-        num_of_questions = 2
+        num_of_questions = 5
         questions_asked = 0
         results = []
         qus = make_question_list(questions, num_of_questions)
