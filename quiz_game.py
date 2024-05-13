@@ -3,46 +3,7 @@ This is a quiz game written for the python practice on sparta global training
 
 """
 import random
-
-questions = [{"question": "What is the capital of Slovenia?",
-              "correct_answer": "Ljubljana",
-              "fake_answers": ["Tirana", "Bogota", "Maribor"]},
-             {"question": "What element has the symbol Sn?",
-              "correct_answer": "Tin",
-              "fake_answers": ["Scandium", "Stone", "Arsenic"]},
-             {"question": "Which country does NOT border France?",
-              "correct_answer": "Austria",
-              "fake_answers": ["Brazil", "Monaco", "Belgium"]},
-             {"question": "Who was the european to reach the Americas?",
-              "correct_answer": "Leif Erikson",
-              "fake_answers": ["Christopher Columbus", "Ferdinand Magellan", "James Cook"]},
-             {"question": "How long does it take light to travel from the Sun to the Earth?",
-              "correct_answer": "About 8 minutes",
-              "fake_answers": ["It's instantaneous", "About 11 days","2 or 3 months, depending on the time of year"]},
-             {"question": "Which of these noble ranks is highest?",
-              "correct_answer": "Duke",
-              "fake_answers": ["Baron", "Earl", "Marquis"]},
-             {"question": "A triangle has one side with a length of 3 and another side with a length of 4. What is the length of th third side?",
-              "correct_answer": "Impossible to say",
-              "fake_answers": ["4", "5", "6"]},
-             {"question": "What letter is a protractor shaped like?",
-              "correct_answer": "D",
-              "fake_answers": ["F", "L", "V"]},
-             {"question": "What is the national animal of Scotland?",
-              "correct_answer": "Unicorn",
-              "fake_answers": ["Eagle", "Lion", "Stag"]},
-             {"question": "Who is the patron Saint of Wales?",
-              "correct_answer": "St. David",
-              "fake_answers": ["St. George", "St. Andrew", "St. Patrick"]},
-             {"question": "Which of the following is a portmanteau?",
-              "correct_answer": "Brunch",
-              "fake_answers": ["A man, a plan, a canal. Panama!", "Jumbo Shrimp", "Flamingo dancing"]},
-             {"question": "Where would you find the Spanish Steps",
-              "correct_answer": "Rome",
-              "fake_answers": ["New York City", "Madrid", "Mars"]},
-             {"question": "Where would you be most likely to see an epitaph?",
-              "correct_answer": "On a tombstone",
-              "fake_answers": ["At the bottom of a page", "At a zoo", "On a boat"]}]
+import quiz_questions as qq
 
 
 def make_question_list(qs, number):
@@ -54,19 +15,13 @@ def ask_question(question):
     typed = ""
     corr = False
     options = ['a', 'b', 'c', 'd']
-    answer = []
-    answers = question["fake_answers"]
-    answers.append(question["correct_answer"])  #make list of all answers
-    random.shuffle(answers)  #shuffle the order of the answers
+    answers = question.get_answers()  #make list of all answers
     #print the question
-    print("{0} \n\n\ta - {1}\n\tb - {2}\n\tc - {3}\n\td - {4}\n".format(question["question"],
+    print("{0} \n\n\ta - {1}\n\tb - {2}\n\tc - {3}\n\td - {4}\n".format(question.get_question(),
                                                                         answers[0],
                                                                         answers[1],
                                                                         answers[2],
                                                                         answers[3]))
-    """if answers[4]:
-        print(answers[4])
-        """
     type_not_correct = True
     while type_not_correct:
         typed = input("Please give an answer: ").lower()  ## ask for an answer
@@ -75,20 +30,23 @@ def ask_question(question):
         else:
             type_not_correct = False
     given_answer = answers[options.index(typed)]  #get full answer from option chosen
-    if given_answer == question["correct_answer"]:
+    if given_answer == question.get_correct_answer():
         #if the answer is correct, store that it was correct
         corr = True
 
     return corr, given_answer
 
+
 def print_results(questions, results):
     for result in results:
         print("Question {0}:\n".format(result[0]))
-        print(questions[result[0]-1]["question"]+"\n")
+        print(questions[result[0] - 1]["question"] + "\n")
         if result[1]:
             print("You answered {0}, which was correct! Congratulations!".format(result[2]))
         else:
-            print("You answered {0}, which was incorrect! The correct answer was {1}.".format(result[2], questions[result[0]-1]["correct_answer"]))
+            print("You answered {0}, which was incorrect! The correct answer was {1}.".format(result[2],
+                                                                                              questions[result[0] - 1][
+                                                                                                  "correct_answer"]))
     return
 
 
@@ -99,13 +57,13 @@ if __name__ == "__main__":
         num_of_questions = 5
         questions_asked = 0
         results = []
-        qus = make_question_list(questions, num_of_questions)
+        qus = make_question_list(qq.questions, num_of_questions)
 
         while questions_asked < num_of_questions:
-            print("Question {0}:\n".format(questions_asked+1))
+            print("Question {0}:\n".format(questions_asked + 1))
             correct, g_answer = ask_question(qus[questions_asked])
             questions_asked += 1
-            results.append([questions_asked,correct, g_answer])
+            results.append([questions_asked, correct, g_answer])
         score = sum([result[1] for result in results])
         print("You scored {0}/{1}".format(score, num_of_questions))
 
@@ -119,8 +77,6 @@ if __name__ == "__main__":
                 type_view_results = False
             else:
                 type_view_results = False
-
-
 
         type_play_again = True
         while type_play_again:
