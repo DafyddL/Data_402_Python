@@ -5,6 +5,14 @@
 ### What does it stand for?
 JSON stands for JavaScript Object Notation. 
 
+### What data types can it store/uses?
+ - Strings
+ - Numbers
+ - Lists
+ - Booleans
+ - Nulls
+ - Objects (dictionaries)
+
 ### What is it used for?
 
 It is used in object-oriented programming that uses human-readable language, text, and syntax to store and communicate data objects between applications.
