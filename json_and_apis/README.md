@@ -84,7 +84,7 @@ Essentially, an API is a REST api if it conforms to the criteria:
   - self-descriptive messages returned to thwe client have enough information to describe how the client should process - **If a message is sent to the client, it should not be vague**
   - hypertext/hypermedia is available- **after accessing the resource, there should be hyperlinks to find all other currently available actions**.
 -A layered system that organizes each type of server involved in the retrieval of requested information into hierarchies, invisible to the client
-
+So an API is RESTful if it is Representational, has URIs , is , and has Caching
 ### What is HTTP?
 HyperText Transfer Protocol (HTTP) is an application layer protocol used to transfer information between networked devices.
 
@@ -94,11 +94,11 @@ HyperText Transfer Protocol (HTTP) is an application layer protocol used to tran
 #### HTTP Response Structure
 ![](https://miro.medium.com/v2/resize:fit:720/format:webp/1*w4gDd2TFunoOnrWy3xpHkQ.png)
 
-### What are the 5 http verbs
-HTTP Verb|CRUD|Entire Collection (e.g. /customers)|Specific Item (e.g. /customers/{id})
----|---|---|---
-POST|Create|201 (Created), 'Location' header with link to /customers/{id} containing new ID.|	404 (Not Found), 409 (Conflict) if resource already exists..
-GET|Read|	200 (OK), list of customers. Use pagination, sorting and filtering to navigate big lists.|200 (OK), single customer. 404 (Not Found), if ID not found or invalid.
-PUT|Update/Replace|405 (Method Not Allowed), unless you want to update/replace every resource in the entire collection.| collection.	200 (OK) or 204 (No Content). 404 (Not Found), if ID not found or invalid.
-PATCH|Update/Modify|405 (Method Not Allowed), unless you want to modify the collection itself.|200 (OK) or 204 (No Content). 404 (Not Found), if ID not found or invalid.
-DELETE|Delete|	405 (Method Not Allowed), unless you want to delete the whole collection—not often desirable.|200 (OK). 404 (Not Found), if ID not found or invalid.
+### What are the 5 http verbs?
+| HTTP Verb | Description                             | CRUD           | Entire Collection (e.g. /customers)                                                                  | Specific Item (e.g. /customers/{id})                                                   |
+|-----------|-----------------------------------------|----------------|------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
+| POST      | Create new resources                    | Create         | 201 (Created), 'Location' header with link to /customers/{id} containing new ID.                     | 	404 (Not Found), 409 (Conflict) if resource already exists..                          |
+| GET       | Retrieve a representation of a resource | Read           | 	200 (OK), list of customers. Use pagination, sorting and filtering to navigate big lists.           | 200 (OK), single customer. 404 (Not Found), if ID not found or invalid.                |
+| PUT       | Create/Update a resource                | Update/Replace | 405 (Method Not Allowed), unless you want to update/replace every resource in the entire collection. | collection.	200 (OK) or 204 (No Content). 404 (Not Found), if ID not found or invalid. |
+| PATCH     | Updates a resource                      | Update/Modify  | 405 (Method Not Allowed), unless you want to modify the collection itself.                           | 200 (OK) or 204 (No Content). 404 (Not Found), if ID not found or invalid.             |
+| DELETE    | Delete a resource                       | Delete         | 	405 (Method Not Allowed), unless you want to delete the whole collection—not often desirable.       | 200 (OK). 404 (Not Found), if ID not found or invalid.                                 |
