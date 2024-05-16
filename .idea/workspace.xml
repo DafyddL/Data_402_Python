@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6c092f5-a3aa-4496-a5e1-d0a5e468f5f7" name="Changes" comment="Populated .gitginore for PyCharm">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/json_and_apis/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/json_and_apis/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,12 +43,14 @@
     "Python.classess_and_methods_questions.executor": "Run",
     "Python.intro_to_json.executor": "Run",
     "Python.parse_json.executor": "Run",
+    "Python.poke_game.executor": "Run",
     "Python.quiz_game.executor": "Run",
     "Python.quiz_questions.executor": "Run",
+    "Python.requests_examples.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/dafydd_work/OneDrive - Sparta Global/Documents/Training/GitHub/Data_402",
+    "last_opened_file_path": "C:/Users/dafydd_work/OneDrive - Sparta Global/Documents/Training/Pokemon_Game",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
